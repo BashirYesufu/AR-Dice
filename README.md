@@ -20,13 +20,13 @@ Dicee is a simple app that will place a die on the screen where a flat surface i
 <table>
  <tr>
   <td>
-   <img align="left" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/AR-Dicee/main/Documentation/image 1.png" width="400" height="600" />
+   <img align="left" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/AR-Dicee/main/Documentation/image 1.jpg" width="400" height="600" />
   </td>
   <td>
-    <img align="center" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/AR-Dicee/main/Documentation/image 2.png" width="400" height="600" />
+    <img align="center" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/AR-Dicee/main/Documentation/image 2.jpg" width="400" height="600" />
   </td>
    <td>
-    <img align="right" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/AR-Dicee/main/Documentation/image 3.png" width="400" height="600" />
+    <img align="right" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/AR-Dicee/main/Documentation/image 3.jpg" width="400" height="600" />
   </td>
  </tr>
 </table>
