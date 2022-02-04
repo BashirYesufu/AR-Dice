@@ -105,6 +105,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         )
     }
     
+    @IBAction func rollAgain(_ sender: UIBarButtonItem) {
+        rollAll()
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        rollAll()
+    }
+    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if anchor is ARPlaneAnchor {
             let planeAnchor = anchor as! ARPlaneAnchor
