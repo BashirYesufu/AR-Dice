@@ -10,7 +10,7 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-
+    
     @IBOutlet var sceneView: ARSCNView!
     
     override func viewDidLoad() {
@@ -19,29 +19,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         // Set the view's delegate
         sceneView.delegate = self
-//
-//        let sphere = SCNSphere(radius: 0.2)
-//
-//        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
-//        let material = SCNMaterial()
-//        material.diffuse.contents = UIImage(named: "art.scnassets/moon.jpg")
-//        sphere.materials = [material]
-//
-//        let node = SCNNode()
-//        node.position = SCNVector3(0, 0.1, -0.5)
-//        node.geometry = sphere
-//
-//        sceneView.scene.rootNode.addChildNode(node)
+        //
+        //        let sphere = SCNSphere(radius: 0.2)
+        //
+        //        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        //        let material = SCNMaterial()
+        //        material.diffuse.contents = UIImage(named: "art.scnassets/moon.jpg")
+        //        sphere.materials = [material]
+        //
+        //        let node = SCNNode()
+        //        node.position = SCNVector3(0, 0.1, -0.5)
+        //        node.geometry = sphere
+        //
+        //        sceneView.scene.rootNode.addChildNode(node)
         sceneView.autoenablesDefaultLighting = true
         
-        // Create a new scene
-        let diceScene = SCNScene(named: "art.scnassets/diceCollada.scn")!
         
-        if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
-        diceNode.position = SCNVector3(0, 0, -0.1)
-        
-        sceneView.scene.rootNode.addChildNode(diceNode)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +43,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
-
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -67,10 +60,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let touchLocation = touch.location(in: sceneView)
             let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
             
-            if !results.isEmpty {
-                print("Touched the plane")
-            } else {
-                print("Touched Somewhere else")
+            if let hitResult = results.first {
+                // Create a new scene
+                let position = hitResult.worldTransform.columns.3
+                let diceScene = SCNScene(named: "art.scnassets/diceCollada.scn")!
+                
+                if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
+                    diceNode.position = SCNVector3(
+                        position.x,
+                        position.y + diceNode.boundingSphere.radius,
+                        position.z
+                    )
+                    
+                    sceneView.scene.rootNode.addChildNode(diceNode)
+                }
             }
         }
     }
