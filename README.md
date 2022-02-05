@@ -12,8 +12,9 @@ Dicee is a simple app that will place a die on the screen where a flat surface i
 
 * How to use ARKit.
 * Basics of SceneKit
-* Addding 3D assets to scenekit.
+* Adding 3D assets to scenekit.
 * Working with colors in a sceneview.
+* Adding iamges as wrappers to 3D objects
 
 
 ## Screenshots of the app
