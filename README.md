@@ -8,7 +8,7 @@ Keeping up with the latest trends of the industry, I'll be working on Augmented 
 
 Dicee is a simple app that will place a die on the screen where a flat surface is detected, creating the illusion of being in the real world. Also, I've played with the app and placed the moon in the room, How cool! 
 
-## What I work on
+## What I will work on
 
 * How to use ARKit.
 * Basics of SceneKit
